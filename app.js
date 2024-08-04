@@ -46,5 +46,10 @@ const authenticateToken = (request, response, next) => {
     })
   }
 }
-
+app.get('/tweets/', async (request, response) => {
+  const getTweetsQuery = `SELECT * FROM tweet`
+  const tweetsArray = await db.all(getTweetsQuery)
+  response.send(tweetsArray)
+})
+app()
 export default app
